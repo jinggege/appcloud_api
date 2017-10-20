@@ -1,0 +1,28 @@
+{
+  "name": "appcloud_api",
+  "version": "1.0.0",
+  "description": "api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinggege/appcloud_api.git"
+  },
+  "keywords": [
+    "node",
+    "koa2",
+    "mysql"
+  ],
+  "author": "mj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinggege/appcloud_api/issues"
+  },
+  "homepage": "https://github.com/jinggege/appcloud_api#readme",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "mysql-pro": "^1.0.1"
+  }
+}
