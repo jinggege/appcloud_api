@@ -30,6 +30,9 @@ var updateDB = async function(params) {
 
     result = await dbClient.executeTransaction( "select * from user;", [] );
 
+    await dbClient.executeTransaction( "insert into user set name = ?, level= ?" ,["jgg", 301]);
+
+
 
     await dbClient.stopTransaction();
 
