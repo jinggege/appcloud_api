@@ -2,7 +2,9 @@
 
 global.CODE_PATH = __dirname+'/src';
 
-const PORT = 3005;
+const PORT = 3003;
+
+var Cors = require("koa-cors");
 
 var KOA = require("koa");
 
@@ -13,6 +15,8 @@ var dbCfg = require(global.CODE_PATH+'/config/db_cfg.js');
 var Ctr = require(global.CODE_PATH+'/controllers/controller.js');
 
 var app = new KOA();
+
+app.use( Cors() );
 
 DBC.connet( dbCfg );
 

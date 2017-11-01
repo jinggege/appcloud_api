@@ -47,6 +47,13 @@ class DBCtrol{
         return resule;
     }
 
+    async addTitle(titleId, title){
+        await this.db.startTransaction();
+        var resule = await this.db.executeTransaction( "insert into book_title set title_id = ?, title= ? " ,[titleId,title]);
+        await this.db.stopTransaction();
+        return resule;
+    }
+
 
 }
 
@@ -80,3 +87,12 @@ module.exports = new DBCtrol();
 
     await dbClient.stopTransaction();
  */
+
+ /**
+  * 
+
+    CREATE TABLE `database_user` (    
+`UserID` varchar(40) NOT NULL default ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;  
+
+  */

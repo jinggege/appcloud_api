@@ -23,6 +23,7 @@
   "homepage": "https://github.com/jinggege/appcloud_api#readme",
   "dependencies": {
     "koa": "^2.3.0",
+    "koa-cors": "0.0.16",
     "koa-router": "^7.2.1",
     "mysql-pro": "^1.0.1"
   }
