@@ -1,58 +1,27 @@
-//var KOA = require("koa");
+"use strict"
 
-var MyClient = require("mysql-pro");
+global.CODE_PATH = __dirname+'/src';
 
-//var app = new KOA();
+const PORT = 3005;
 
-var dbClient = new MyClient(
-    {
-        mysql:{
-            host: "127.0.0.1",
-            port: 3306,
-            database: "db_test",
-            user: "root",
-            password: "654321"
-        }
-    }
-);
+var KOA = require("koa");
 
+var DBC = require(global.CODE_PATH+'/controllers/db_control.js');
 
-var updateDB = async function(params) {
+var dbCfg = require(global.CODE_PATH+'/config/db_cfg.js');
 
-    await dbClient.startTransaction();
-    var result = await dbClient.executeTransaction( "select * from user;", [] );
+var Ctr = require(global.CODE_PATH+'/controllers/controller.js');
 
-    console.log("init data=",result);
+var app = new KOA();
 
-    //await dbClient.executeTransaction("update user set name = ?",[10, 1]);
+DBC.connet( dbCfg );
 
-    await dbClient.executeTransaction("update user set name = ? ,level = ? where id = ?",[10, 100, 1]);
-
-    result = await dbClient.executeTransaction( "select * from user;", [] );
-
-    await dbClient.executeTransaction( "insert into user set name = ?, level= ?" ,["jgg", 301]);
+Ctr.start( app );
 
 
 
-    await dbClient.stopTransaction();
 
-    console.log(" end data=",result);
-
-    
-}
+app.listen( PORT );
+console.log('server start by '+PORT);
 
 
-updateDB( null );
-
-
-//app.listene(3005);
-
-
-/**
- * 
-    await client.startTransaction();
-    await client.executeTransaction("select * from user;", []);
-    await client.executeTransaction("update user set age = ? where id = ?;", [2, 1]);
-    await client.executeTransaction("update user set name = ? where id = ?;", ['tom', 2]);
-    await client.stopTransaction(); 
- */

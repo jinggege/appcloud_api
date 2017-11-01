@@ -25,6 +25,28 @@ class DBCtrol{
 
     }
 
+    async addUser(uId, uName, role){
+        await this.db.startTransaction();
+        var resule = await this.db.executeTransaction( "insert into book_user set name = ?, uid= ?, role=? " ,[uName,uId, role]);
+        await this.db.stopTransaction();
+        return resule;
+
+        /*
+        await this.db.startTransaction();
+        var resule = await this.db.executeTransaction( "insert into book_user(name,uid,role) values('mg', 54332, 2)");
+        await this.db.stopTransaction();
+        return resule;
+        */
+
+    }
+
+    async delUser(uId){
+        await this.db.startTransaction();
+        var resule = await this.db.executeTransaction( "delete from book_user where uid=? " ,[uId]);
+        await this.db.stopTransaction();
+        return resule;
+    }
+
 
 }
 
