@@ -54,6 +54,13 @@ class DBCtrol{
         return resule;
     }
 
+    async getTitle(){
+        await this.db.startTransaction();
+        var resule = await this.db.executeTransaction( "select * from book_title");
+        await this.db.stopTransaction();
+        return resule;
+    }
+
 
 }
 
