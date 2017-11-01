@@ -1,2 +1,10 @@
 
 node_modules/accepts/README.md
+*.js
+node_modules/koa-router/lib/README_tpl.hbs
+*.md
+*.yml
+node_modules/koa-router/node_modules/debug/.eslintrc
+node_modules/koa-router/LICENSE
+node_modules/koa-router/node_modules/debug/.npmignore
+node_modules/koa-router/node_modules/debug/component.json
